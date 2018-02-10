@@ -8,4 +8,4 @@ app.use(ctx => {
   ctx.redirect('https://www.payu.pl')
 })
 
-app.listen(3333)
+app.listen(80)
