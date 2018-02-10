@@ -12,13 +12,34 @@ app.use(cors())
 
 app.use(async ctx => {
 
+console.log(ctx.request)
+
   // make auth call
   const authRes = await superagent
     .post(authUrl)
     .send('grant_type=client_credentials')
     .send('client_id=' + clientId)
     .send('client_secret=' + clientSecret)
-console.log(authRes)
+
+  // extract auth token
+  const authToken = authRes.body['access_token']
+console.log(authToken)
+
+  // create order
+  const order = {
+    customerIp: "127.0.0.1",
+    merchantPosId: "145227",
+    description: "RTV market",
+    currencyCode: "PLN",
+    totalAmount: "21000",
+    products: [
+      {
+        name: "Wireless Mouse for Laptop",
+        unitPrice: "21000",
+        quantity: "1"
+      }
+    ]
+  }
 
   // make order call
 
