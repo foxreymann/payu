@@ -2,7 +2,7 @@
   "name": "payu",
   "version": "1.0.0",
   "engines": {
-    "node": "7.x"
+    "node": "9.x"
   },
   "main": "index.js",
   "scripts": {
