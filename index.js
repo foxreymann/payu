@@ -11,6 +11,10 @@ const app = new Koa()
 app.use(cors())
 
 app.use(async ctx => {
+  if (ctx.request.query.bootup !== undefined) {
+    ctx.body = { status: 'success' }
+    return
+  }
 
   // make auth call
   let res = await superagent
